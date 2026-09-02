@@ -3,333 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ABS Launch Pull Plan — Arizona Mass Tort Firm</title>
+<title>Arizona ABS Launch Playbook — Compliance Lawyer Track</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: #f4f5f7;
-    color: #1a2332;
-    line-height: 1.5;
-    padding: 24px 16px 80px;
-  }
-  .container { max-width: 860px; margin: 0 auto; }
-  header { margin-bottom: 28px; }
-  h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; }
-  .subtitle { color: #5b6572; margin-top: 6px; font-size: 14px; }
-
-  .overall {
-    background: #1a2332;
-    color: #fff;
-    border-radius: 12px;
-    padding: 18px 22px;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    flex-wrap: wrap;
-  }
-  .overall .big { font-size: 30px; font-weight: 700; min-width: 86px; }
-  .overall .bar-wrap { flex: 1; min-width: 180px; }
-  .overall .bar {
-    height: 10px; background: rgba(255,255,255,.18); border-radius: 6px; overflow: hidden;
-  }
-  .overall .bar > div { height: 100%; background: #4ade80; width: 0%; transition: width .3s; }
-  .overall .label { font-size: 12px; opacity: .75; margin-bottom: 6px; }
-  .reset-btn {
-    background: rgba(255,255,255,.12); color: #fff; border: none; border-radius: 8px;
-    padding: 8px 14px; font-size: 13px; cursor: pointer;
-  }
-  .reset-btn:hover { background: rgba(255,255,255,.22); }
-
-  .key-facts {
-    background: #fff7ed; border: 1px solid #fed7aa; border-radius: 12px;
-    padding: 16px 20px; margin-bottom: 24px; font-size: 14px;
-  }
-  .key-facts strong { color: #9a3412; }
-
-  .workstream {
-    background: #fff; border-radius: 12px; margin-bottom: 16px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.07); overflow: hidden;
-  }
-  .ws-header {
-    padding: 16px 20px; cursor: pointer; display: flex; align-items: center; gap: 14px;
-    user-select: none;
-  }
-  .ws-header:hover { background: #f8fafc; }
-  .ws-badge {
-    width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center;
-    justify-content: center; font-weight: 700; font-size: 15px; color: #fff; flex-shrink: 0;
-  }
-  .ws-title { flex: 1; }
-  .ws-title h2 { font-size: 16px; font-weight: 650; }
-  .ws-title .meta { font-size: 12.5px; color: #5b6572; margin-top: 2px; }
-  .ws-count { font-size: 13px; color: #5b6572; font-variant-numeric: tabular-nums; }
-  .ws-mini-bar {
-    width: 70px; height: 6px; background: #e5e7eb; border-radius: 4px; overflow: hidden;
-  }
-  .ws-mini-bar > div { height: 100%; background: #3b82f6; width: 0%; transition: width .3s; }
-  .chevron { color: #9aa3ad; transition: transform .2s; font-size: 13px; }
-  .workstream.open .chevron { transform: rotate(90deg); }
-
-  .ws-body { display: none; border-top: 1px solid #eef0f3; padding: 8px 20px 16px; }
-  .workstream.open .ws-body { display: block; }
-
-  .item {
-    display: flex; gap: 12px; padding: 11px 0; border-bottom: 1px solid #f1f3f5;
-    align-items: flex-start;
-  }
-  .item:last-child { border-bottom: none; }
-  .item input[type="checkbox"] {
-    width: 20px; height: 20px; margin-top: 2px; cursor: pointer; accent-color: #16a34a;
-    flex-shrink: 0;
-  }
-  .item .text { flex: 1; font-size: 14.5px; }
-  .item .text .note { display: block; font-size: 12.5px; color: #6b7280; margin-top: 2px; }
-  .item.done .text { text-decoration: line-through; color: #9aa3ad; }
-  .item.done .text .note { text-decoration: none; }
-  .tag {
-    font-size: 10.5px; font-weight: 700; padding: 2px 8px; border-radius: 999px;
-    text-transform: uppercase; letter-spacing: .4px; flex-shrink: 0; margin-top: 3px;
-  }
-  .tag.owner { background: #e0e7ff; color: #3730a3; }
-  .tag.critical { background: #fee2e2; color: #b91c1c; }
-  .tag.cost { background: #ecfdf5; color: #047857; }
-
-  .critical-path {
-    background: #fef2f2; border: 1px solid #fecaca; border-radius: 12px;
-    padding: 16px 20px; margin-bottom: 24px; font-size: 14px;
-  }
-  .critical-path strong { color: #b91c1c; }
-
-  .gate {
-    position: fixed; inset: 0; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 14px; padding: 20px;
-    background: linear-gradient(160deg, #1a2332 0%, #243049 100%);
-    z-index: 1000; text-align: center;
-  }
-  .gate h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; color: #fff; }
-  .gate p { color: #aab6c8; font-size: 14px; max-width: 480px; margin-top: 4px; }
-  .gate input {
-    background: rgba(255,255,255,.06); color: #fff; text-align: center;
-    border: 1px solid rgba(255,255,255,.18); border-radius: 10px;
-    padding: 12px 16px; font-size: 20px; letter-spacing: 8px; width: 180px;
-    outline: none;
-  }
-  .gate .unlock-btn {
-    background: #2563eb; color: #fff; border: none; border-radius: 10px;
-    padding: 12px 28px; font-size: 15px; font-weight: 600; cursor: pointer;
-  }
-  .gate .unlock-btn:hover { background: #1d4ed8; }
-  .gate .err { color: #fca5a5; font-size: 13px; min-height: 1em; }
-
-  @media print {
-    body { background: #fff; }
-    .ws-body { display: block !important; }
-    .reset-btn { display: none; }
-  }
+  :root{--bg:#0f1115;--card:#171a21;--line:#262b36;--txt:#e8eaf0;--mut:#9aa3b2;--acc:#4f8ef7;--grn:#3ddc97;--amb:#f5b04f;}
+  *{box-sizing:border-box;margin:0}
+  body{font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.55;padding:32px 16px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+  h1{font-size:26px;letter-spacing:-.02em}
+  .sub{color:var(--mut);margin:8px 0 6px}
+  .bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin:14px 0 4px}
+  .bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acc),var(--grn));transition:width .3s}
+  #pct{color:var(--grn);font-weight:600;font-size:14px}
+  .phase{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-top:22px}
+  .phase h2{font-size:18px;display:flex;align-items:center;gap:10px}
+  .phase h2 .num{background:var(--acc);color:#fff;width:26px;height:26px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;flex:none}
+  .tag{font-size:11px;color:var(--amb);border:1px solid var(--amb);padding:2px 8px;border-radius:99px;margin-left:auto;font-weight:600}
+  .task{display:flex;gap:12px;align-items:flex-start;padding:10px 4px;border-bottom:1px dashed var(--line)}
+  .task:last-child{border-bottom:none}
+  .task input{width:18px;height:18px;margin-top:3px;accent-color:var(--grn);flex:none;cursor:pointer}
+  .task label{cursor:pointer;flex:1}
+  .task.done label{color:var(--mut);text-decoration:line-through}
+  .note{font-size:13px;color:var(--mut);margin-top:2px}
+  .callout{background:#1d2230;border-left:3px solid var(--acc);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:14px}
+  .warn{border-left-color:var(--amb)}
+  footer{margin-top:34px;color:var(--mut);font-size:12px;text-align:center}
+  .reset{margin-top:14px;background:none;border:1px solid var(--line);color:var(--mut);padding:6px 14px;border-radius:8px;cursor:pointer;font-size:13px}
+  .reset:hover{color:var(--txt);border-color:var(--acc)}
 </style>
 </head>
 <body>
-<div class="gate" id="gate">
-  <h1>ABS Launch Pull Plan</h1>
-  <p>This page is under PIN protection. Enter the 4-digit access code to continue.</p>
-  <input id="pinInput" type="password" inputmode="numeric" maxlength="4" placeholder="••••" autocomplete="off">
-  <div class="err" id="gateErr"></div>
-  <button class="unlock-btn" onclick="unlock()">Unlock</button>
+<div class="wrap">
+  <h1>Arizona ABS Playbook — 1099 Compliance Lawyer Track</h1>
+  <p class="sub">North Castle Consulting · Arizona Alternative Business Structure (ABS) setup with an independent-contractor compliance lawyer. Check items off as you go — progress saves in this browser.</p>
+  <div class="bar"><i id="fill"></i></div>
+  <div id="pct">0% complete</div>
+  <button class="reset" onclick="resetAll()">Reset all</button>
+
+  <div class="phase">
+    <h2><span class="num">0</span>Ground Rules — Read First</h2>
+    <div class="callout">Arizona is currently the only state that has eliminated UPL/ownership Rule 5.4 entirely — non-lawyers can own law firms via an ABS licensed by the Arizona Supreme Court. That's the whole thesis.</div>
+    <div class="callout warn"><b>1099 trap:</b> a "compliance lawyer" doing ongoing, core, supervised legal work looks like a W-2 employee. To keep 1099 defensible: written contractor agreement, lawyer sets own hours, uses own malpractice policy, serves other clients, paid per deliverable/milestone (not salary), no benefits. If the lawyer is functionally running compliance full-time for you, budget for W-2 instead.</div>
+    <div class="callout warn"><b>Also note:</b> the ABS itself needs an Arizona-licensed <b>Compliance Lawyer</b> named in the application. A 1099 arrangement can work, but the Court expects real authority and access — not a figurehead.</div>
+  </div>
+
+  <div class="phase">
+    <h2><span class="num">1</span>Structure & Pre-Application <span class="tag">Weeks 1–2</span></h2>
+    <div class="task"><input type="checkbox" id="t1"><label for="t1">Form the entity (AZ LLC or corp) that will hold the ABS license<div class="note">File with Arizona Corporation Commission; get EIN; draft operating agreement showing non-lawyer ownership %.</div></label></div>
+    <div class="task"><input type="checkbox" id="t2"><label for="t2">Define the practice scope (e.g., hair relaxer MDL intake/referral or co-counsel model)<div class="note">ABS application requires a description of legal services offered.</div></label></div>
+    <div class="task"><input type="checkbox" id="t3"><label for="t3">Map ownership: every owner with ≥10% stake must be disclosed and pass character/fitness review</label></div>
+    <div class="task"><input type="checkbox" id="t4"><label for="t4">Recruit the AZ-barred Compliance Lawyer — active Arizona license, clean disciplinary record<div class="note">This person is personally on the hook to the Court for the ABS's compliance. Expect them to want real pay for real risk.</div></label></div>
+  </div>
+
+  <div class="phase">
+    <h2><span class="num">2</span>The 1099 Compliance Lawyer <span class="tag">Weeks 2–4</span></h2>
+    <div class="task"><input type="checkbox" id="t5"><label for="t5">Draft the independent contractor agreement: scope = compliance oversight duties required by ACJA § 7-209<div class="note">Deliverable-based: quarterly compliance reviews, incident reporting, annual ABS renewal sign-off, availability SLA.</div></label></div>
+    <div class="task"><input type="checkbox" id="t6"><label for="t6">Confirm lawyer carries own malpractice insurance (or is named on the ABS policy)</label></div>
+    <div class="task"><input type="checkbox" id="t7"><label for="t7">Verify 1099 defensibility: other clients, own office/tools, no set schedule, invoice-based pay<div class="note">IRS behavioral/financial control tests. If you dictate hours and they're full-time only for you → W-2.</div></label></div>
+    <div class="task"><input type="checkbox" id="t8"><label for="t8">Set comp structure: monthly retainer per milestone vs. hourly — get W-9 before first payment</label></div>
+    <div class="task"><input type="checkbox" id="t9"><label for="t9">Build the escalation path: compliance lawyer must have direct line to ownership + authority to halt non-compliant ops<div class="note">The Court will test this. Document it in the compliance plan.</div></label></div>
+  </div>
+
+  <div class="phase">
+    <h2><span class="num">3</span>ABS Application to AZ Supreme Court <span class="tag">Weeks 4–10</span></h2>
+    <div class="task"><input type="checkbox" id="t10"><label for="t10">Complete ABS application via the Arizona Judicial Branch (AJA) portal<div class="note">Includes entity docs, ownership disclosure, compliance plan, lawyer roster, application fee.</div></label></div>
+    <div class="task"><input type="checkbox" id="t11"><label for="t11">Compliance plan draft: how the ABS ensures lawyers follow AZ Rules of Professional Conduct</label></div>
+    <div class="task"><input type="checkbox" id="t12"><label for="t12">Background checks / character-fitness for all disclosable owners</label></div>
+    <div class="task"><input type="checkbox" id="t13"><label for="t13">Respond to Committee inquiries / attend hearing if scheduled<div class="note">Timeline is variable — budget 6–12 weeks from filing to decision.</div></label></div>
+    <div class="task"><input type="checkbox" id="t14"><label for="t14">License issued → calendar the annual renewal + any conditions attached to approval</label></div>
+  </div>
+
+  <div class="phase">
+    <h2><span class="num">4</span>Post-Approval Ops <span class="tag">Ongoing</span></h2>
+    <div class="task"><input type="checkbox" id="t15"><label for="t15">Trust account (IOLTA) setup if the ABS touches client funds</label></div>
+    <div class="task"><input type="checkbox" id="t16"><label for="t16">File 1099-NEC for the compliance lawyer each January ($600+ threshold)</label></div>
+    <div class="task"><input type="checkbox" id="t17"><label for="t17">Quarterly compliance check-ins documented in writing — paper trail for the Court</label></div>
+    <div class="task"><input type="checkbox" id="t18"><label for="t18">Marketing review: non-lawyer-owned firm ads still must comply with AZ advertising rules — compliance lawyer signs off</label></div>
+    <div class="task"><input type="checkbox" id="t19"><label for="t19">Watch other states: ABS license is AZ-only — out-of-state clients/cases need co-counsel or local-licensed lawyers<div class="note">Relevant for MDL work filed in federal court outside Arizona.</div></label></div>
+  </div>
+
+  <footer>Playbook is a working checklist, not legal advice — have Arizona counsel review the application and contractor agreement before filing.</footer>
 </div>
-<div class="container" id="container" style="display:none">
-  <header>
-    <h1>ABS Launch Pull Plan</h1>
-    <div class="subtitle">Arizona LLC → Licensed ABS Mass Tort Firm &nbsp;·&nbsp; Owners: You, Nick, Steve &nbsp;·&nbsp; Progress saves automatically in this browser</div>
-  </header>
-
-  <div class="overall">
-    <div class="big" id="overallPct">0%</div>
-    <div class="bar-wrap">
-      <div class="label" id="overallCount">0 of 0 tasks complete</div>
-      <div class="bar"><div id="overallBar"></div></div>
-    </div>
-    <button class="reset-btn" onclick="resetAll()">Reset all</button>
-  </div>
-
-  <div class="key-facts">
-    <strong>Structure:</strong> The AZ LLC is permanent — the ABS is a <em>license layered on top</em>, not a conversion.
-    <strong>Ownership is defined BEFORE the ABS application</strong> (signed operating agreement is a required exhibit).
-    <strong>Critical path:</strong> Steve's AZ admission on motion (3–6 months). Everything else should be finished and waiting when he's sworn in.
-  </div>
-
-  <div class="critical-path">
-    <strong>⚠ Week 1 gate check:</strong> Steve must confirm (a) 3 of last 5 years active practice and (b) a reportable MPRE score of 85+. If either fails, pivot immediately to hiring an outside AZ compliance lawyer as a bridge.
-  </div>
-
-  <div id="workstreams"></div>
-</div>
-
 <script>
-const PIN = "8300";
-const gate = document.getElementById("gate");
-const container = document.getElementById("container");
-const pinInput = document.getElementById("pinInput");
-const gateErr = document.getElementById("gateErr");
-
-function unlock() {
-  if (pinInput.value.trim().replace(/\D/g, "") === PIN) {
-    gate.style.display = "none";
-    container.style.display = "";
-    render();
-  } else {
-    gateErr.textContent = "Incorrect code. Try again.";
-    pinInput.value = ""; pinInput.focus();
-  }
-}
-pinInput.addEventListener("keydown", (e) => { if (e.key === "Enter") unlock(); });
-
-const PLAN = [
-  {
-    id: "A", name: "Arizona LLC Formation", color: "#2563eb",
-    meta: "Owner: You/Nick · Weeks 1–3 · ~$300 all-in",
-    items: [
-      { t: "Reserve firm name (check AZ legal advertising rules first)", note: "Nothing misleading; can't imply all owners are lawyers" },
-      { t: "Engage statutory agent", note: "CT Corp / Northwest etc. · ~$100–300/yr · must have AZ street address", tag: "cost" },
-      { t: "File Articles of Organization with AZ Corporation Commission", note: "$50 via ACC eCorp portal · 1–2 wks standard" },
-      { t: "Handle newspaper publication requirement", note: "Exempt if statutory agent is in Maricopa or Pima county — most are" },
-      { t: "Get EIN from IRS", note: "Free, instant online · needed for trust account + ABS application" },
-    ]
-  },
-  {
-    id: "B", name: "Steve — AZ Bar Admission on Motion", color: "#dc2626",
-    meta: "Owner: Steve · Weeks 1–20 · LONGEST POLE · ~$1,500–2,500",
-    items: [
-      { t: "Pull UBE score + practice history records", note: "Must show 3 of last 5 years active practice", tag: "critical" },
-      { t: "Verify MPRE score of 85+ (retake if stale/missing)", note: "MPRE offered ~3x/year — check dates in week 1, this can gate everything", tag: "critical" },
-      { t: "Order certificates of good standing from every bar admitted to", note: "MO + any others" },
-      { t: "Complete character & fitness application", note: "Fingerprints, 10-yr residence/employment history · DISCLOSE EVERYTHING — omissions kill applications" },
-      { t: "Submit admission-on-motion application + fees", note: "MO is reciprocal — no bar exam needed", tag: "cost" },
-      { t: "Complete online Arizona Law Course", note: "Short state-specific course" },
-      { t: "Character & fitness investigation runs its course", note: "3–6 months, mostly waiting · practice-pending-admission may be available (up to 365 days)" },
-      { t: "Sworn in → active AZ bar member", note: "Gates the ABS application", tag: "critical" },
-    ]
-  },
-  {
-    id: "C", name: "Operating Agreement (the 'partnership contract')", color: "#7c3aed",
-    meta: "Owner: All three · Weeks 3–6 · MUST be signed BEFORE ABS filing",
-    items: [
-      { t: "Agree equity split (You / Nick / Steve)", note: "Post-license changes cost $250 + Committee approval — get it right now", tag: "critical" },
-      { t: "Designate Steve as manager + compliance lawyer in the agreement", note: "Compliance lawyer must hold management authority, not just equity" },
-      { t: "Include Steve's ethics veto provision", note: "You/Nick control business decisions; Steve controls client matters, conflicts, trust funds, legal judgment" },
-      { t: "Non-lawyer non-interference clause", note: "Explicit: non-lawyer members cannot direct attorney professional judgment" },
-      { t: "IOLTA firewall — trust account signatory = lawyer-members only", note: "" },
-      { t: "Buy-sell / repurchase provision if Steve exits", note: "Losing the compliance lawyer jeopardizes the license — include succession procedure" },
-      { t: "Deadlock / tiebreaker provisions", note: "2-1 by design; business ties → you two, ethics ties → Steve, in writing" },
-      { t: "ALL THREE SIGN", note: "This document is an ABS application exhibit", tag: "critical" },
-    ]
-  },
-  {
-    id: "D", name: "Arizona Office", color: "#0891b2",
-    meta: "Owner: You · Weeks 3–5 · ~$150–300/mo",
-    items: [
-      { t: "Sign virtual office w/ desk access (Phoenix or Tucson)", note: "Regus / Industrious / Davinci / local executive suite · real street address, not PO box" },
-      { t: "Do NOT use statutory agent's address as the office", note: "Keep service-of-process and operational presence separate" },
-      { t: "Use this address consistently everywhere", note: "ACC filing, ABS application, IOLTA bank, letterhead, website" },
-    ]
-  },
-  {
-    id: "E", name: "Business Plan + Compliance Plan", color: "#d97706",
-    meta: "Owner: You + Nick · Weeks 4–8",
-    items: [
-      { t: "Practice area & target dockets section", note: "Mass tort; hair relaxer MDL (N.D. Ill.) etc.; fee structure" },
-      { t: "Case acquisition model written out", note: "Committee scrutinizes lead-gen for fee-splitting/solicitation issues" },
-      { t: "Arizona-benefit narrative (required by AO 2025-241)", note: "AZ office, AZ claimant intake, local hiring plan — not a flag of convenience", tag: "critical" },
-      { t: "Funding source disclosure", note: "Startup capital sources; outside money can't compromise lawyer independence" },
-      { t: "Compliance plan: conflicts, confidentiality, trust accounting", note: "No boilerplate — sloppy plans get bounced" },
-      { t: "Lawyer vs non-lawyer supervision boundaries in writing", note: "How You/Nick interact with cases without directing legal judgment" },
-      { t: "Client disclosure forms re: non-lawyer ownership", note: "ABS firms have specific client-notice obligations" },
-    ]
-  },
-  {
-    id: "F", name: "ABS Application & Launch", color: "#16a34a",
-    meta: "Owner: All (Steve leads as compliance lawyer) · After Steve sworn in · $9K/yr license",
-    items: [
-      { t: "Fingerprints + background checks for all 3 owners", note: "" },
-      { t: "Assemble package: Articles, signed operating agreement, business plan, compliance plan, funding disclosures, Steve's AZ bar #", note: "" },
-      { t: "File with ABS Committee + license fee", note: "$9,000/yr regular ABS · renewals every 2 years w/ public Committee meeting", tag: "cost" },
-      { t: "Respond to Committee questions (expect at least 1 round)", note: "" },
-      { t: "Committee recommendation → Supreme Court order → LICENSE GRANTED", note: "", tag: "critical" },
-      { t: "Open IOLTA trust account", note: "Under AZ rules; lawyer signatories only" },
-      { t: "Bind malpractice insurance", note: "Functionally required; Committee likes seeing it" },
-      { t: "Calendar compliance: annual certification + 2-yr renewal", note: "Late renewal = $300/DAY" },
-    ]
-  },
-];
-
-const KEY = "abs-pull-plan-v1";
-let state = JSON.parse(localStorage.getItem(KEY) || "{}");
-
-function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
-
-function render() {
-  const wrap = document.getElementById("workstreams");
-  wrap.innerHTML = "";
-  let totalAll = 0, doneAll = 0;
-
-  PLAN.forEach(ws => {
-    const total = ws.items.length;
-    const done = ws.items.filter((_, i) => state[ws.id + i]).length;
-    totalAll += total; doneAll += done;
-    const pct = Math.round(done / total * 100);
-
-    const div = document.createElement("div");
-    div.className = "workstream" + (done === 0 ? "" : " open");
-    div.innerHTML = `
-      <div class="ws-header">
-        <div class="ws-badge" style="background:${ws.color}">${ws.id}</div>
-        <div class="ws-title">
-          <h2>${ws.name}</h2>
-          <div class="meta">${ws.meta}</div>
-        </div>
-        <div class="ws-count">${done}/${total}</div>
-        <div class="ws-mini-bar"><div style="width:${pct}%"></div></div>
-        <div class="chevron">▶</div>
-      </div>
-      <div class="ws-body">
-        ${ws.items.map((it, i) => {
-          const checked = !!state[ws.id + i];
-          return `<div class="item ${checked ? "done" : ""}">
-            <input type="checkbox" id="${ws.id}${i}" ${checked ? "checked" : ""}>
-            <label class="text" for="${ws.id}${i}">${it.t}
-              ${it.note ? `<span class="note">${it.note}</span>` : ""}
-            </label>
-            ${it.tag ? `<span class="tag ${it.tag}">${it.tag}</span>` : ""}
-          </div>`;
-        }).join("")}
-      </div>`;
-    wrap.appendChild(div);
-
-    div.querySelector(".ws-header").addEventListener("click", () => div.classList.toggle("open"));
-    ws.items.forEach((_, i) => {
-      const cb = div.querySelector("#" + ws.id + i);
-      cb.addEventListener("change", () => {
-        state[ws.id + i] = cb.checked;
-        save(); render();
-        div.classList.add("open");
-      });
-    });
-  });
-
-  const pctAll = totalAll ? Math.round(doneAll / totalAll * 100) : 0;
-  document.getElementById("overallPct").textContent = pctAll + "%";
-  document.getElementById("overallCount").textContent = `${doneAll} of ${totalAll} tasks complete`;
-  document.getElementById("overallBar").style.width = pctAll + "%";
-}
-
-function resetAll() {
-  if (confirm("Clear all checkmarks and start over?")) {
-    state = {}; save(); render();
-  }
-}
-
-render();
+const ids=[...document.querySelectorAll('input[type=checkbox]')];
+function save(){localStorage.setItem('abs_playbook',JSON.stringify(ids.map(i=>i.checked)))}
+function load(){try{const s=JSON.parse(localStorage.getItem('abs_playbook'));if(s)s.forEach((v,i)=>{ids[i].checked=v});}catch(e){}}
+function render(){const n=ids.filter(i=>i.checked).length;const p=Math.round(n/ids.length*100);
+ document.getElementById('fill').style.width=p+'%';document.getElementById('pct').textContent=p+'% complete ('+n+'/'+ids.length+')';
+ ids.forEach(i=>i.closest('.task').classList.toggle('done',i.checked));}
+ids.forEach(i=>i.addEventListener('change',()=>{save();render()}));
+function resetAll(){ids.forEach(i=>i.checked=false);save();render()}
+load();render();
 </script>
 </body>
 </html>
