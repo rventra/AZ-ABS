@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arizona ABS Launch Playbook — Compliance Lawyer Track</title>
+<title>Arizona ABS Launch Playbook — MDL Mass Tort Track</title>
 <style>
   :root{--bg:#0f1115;--card:#171a21;--line:#262b36;--txt:#e8eaf0;--mut:#9aa3b2;--acc:#4f8ef7;--grn:#3ddc97;--amb:#f5b04f;}
   *{box-sizing:border-box;margin:0}
@@ -25,68 +25,88 @@
   .task.done label{color:var(--mut);text-decoration:line-through}
   .note{font-size:13px;color:var(--mut);margin-top:2px}
   .callout{background:#1d2230;border-left:3px solid var(--acc);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:14px}
+  .callout a{color:var(--acc)}
   .warn{border-left-color:var(--amb)}
   footer{margin-top:34px;color:var(--mut);font-size:12px;text-align:center}
   .reset{margin-top:14px;background:none;border:1px solid var(--line);color:var(--mut);padding:6px 14px;border-radius:8px;cursor:pointer;font-size:13px}
   .reset:hover{color:var(--txt);border-color:var(--acc)}
+  .resources{margin-top:18px}
+  .resources a{display:inline-block;color:var(--acc);text-decoration:none;font-size:14px}
+  .resources a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>Arizona ABS Playbook — 1099 Compliance Lawyer Track</h1>
-  <p class="sub">North Castle Consulting · Arizona Alternative Business Structure (ABS) setup with an independent-contractor compliance lawyer. Check items off as you go — progress saves in this browser.</p>
+  <h1>Arizona ABS Playbook — MDL Mass Tort Track</h1>
+  <p class="sub">North Castle Consulting · Arizona Alternative Business Structure (ABS) setup for a mass tort operation using a 1099 independent-contractor Compliance Lawyer. Check items off as you go — progress saves in this browser.</p>
   <div class="bar"><i id="fill"></i></div>
   <div id="pct">0% complete</div>
   <button class="reset" onclick="resetAll()">Reset all</button>
 
-  <div class="phase">
-    <h2><span class="num">0</span>Ground Rules — Read First</h2>
-    <div class="callout">Arizona is currently the only state that has eliminated UPL/ownership Rule 5.4 entirely — non-lawyers can own law firms via an ABS licensed by the Arizona Supreme Court. That's the whole thesis.</div>
-    <div class="callout warn"><b>1099 trap:</b> a "compliance lawyer" doing ongoing, core, supervised legal work looks like a W-2 employee. To keep 1099 defensible: written contractor agreement, lawyer sets own hours, uses own malpractice policy, serves other clients, paid per deliverable/milestone (not salary), no benefits. If the lawyer is functionally running compliance full-time for you, budget for W-2 instead.</div>
-    <div class="callout warn"><b>Also note:</b> the ABS itself needs an Arizona-licensed <b>Compliance Lawyer</b> named in the application. A 1099 arrangement can work, but the Court expects real authority and access — not a figurehead.</div>
+  <div class="callout resources">
+    <strong>Helpful Resources</strong><br>
+    • <a href="https://www.azcourts.gov/cld/Alternative-Business-Structure/Directory" target="_blank" rel="noopener">Arizona Judicial Branch — ABS Directory</a> &nbsp;(firms with an active ABS license from the AZ Supreme Court)
   </div>
 
   <div class="phase">
     <h2><span class="num">1</span>Structure & Pre-Application <span class="tag">Weeks 1–2</span></h2>
-    <div class="task"><input type="checkbox" id="t1"><label for="t1">Form the entity (AZ LLC or corp) that will hold the ABS license<div class="note">File with Arizona Corporation Commission; get EIN; draft operating agreement showing non-lawyer ownership %.</div></label></div>
-    <div class="task"><input type="checkbox" id="t2"><label for="t2">Define the practice scope (e.g., hair relaxer MDL intake/referral or co-counsel model)<div class="note">ABS application requires a description of legal services offered.</div></label></div>
-    <div class="task"><input type="checkbox" id="t3"><label for="t3">Map ownership: every owner with ≥10% stake must be disclosed and pass character/fitness review</label></div>
-    <div class="task"><input type="checkbox" id="t4"><label for="t4">Recruit the AZ-barred Compliance Lawyer — active Arizona license, clean disciplinary record<div class="note">This person is personally on the hook to the Court for the ABS's compliance. Expect them to want real pay for real risk.</div></label></div>
+    <div class="callout">Arizona is the only state that has fully eliminated the Rule 5.4 prohibition on non-lawyer ownership, allowing you to own a law firm and hold a direct fee interest in MDL cases.</div>
+    <div class="task"><input type="checkbox" id="m1"><label for="m1">Establish the Entity — file Articles of Organization (LLC or Corporation) with the Arizona Corporation Commission and obtain an EIN</label></div>
+    <div class="task"><input type="checkbox" id="m2"><label for="m2">Establish the AZ Footprint — physical Arizona address for legal correspondence and primary operating base<div class="note">Statutory agent address does not satisfy this. Separate from service-of-process.</div></label></div>
+    <div class="task"><input type="checkbox" id="m3"><label for="m3">Map Ownership — identify every owner / investor / executive with 10%+ equity; each must pass character & fitness</label></div>
+    <div class="task"><input type="checkbox" id="m4"><label for="m4">Define Practice Scope — written description of legal service model (e.g., mass tort intake, MRR, co-counsel referral)<div class="note">Required by the ABS application.</div></label></div>
   </div>
 
   <div class="phase">
-    <h2><span class="num">2</span>The 1099 Compliance Lawyer <span class="tag">Weeks 2–4</span></h2>
-    <div class="task"><input type="checkbox" id="t5"><label for="t5">Draft the independent contractor agreement: scope = compliance oversight duties required by ACJA § 7-209<div class="note">Deliverable-based: quarterly compliance reviews, incident reporting, annual ABS renewal sign-off, availability SLA.</div></label></div>
-    <div class="task"><input type="checkbox" id="t6"><label for="t6">Confirm lawyer carries own malpractice insurance (or is named on the ABS policy)</label></div>
-    <div class="task"><input type="checkbox" id="t7"><label for="t7">Verify 1099 defensibility: other clients, own office/tools, no set schedule, invoice-based pay<div class="note">IRS behavioral/financial control tests. If you dictate hours and they're full-time only for you → W-2.</div></label></div>
-    <div class="task"><input type="checkbox" id="t8"><label for="t8">Set comp structure: monthly retainer per milestone vs. hourly — get W-9 before first payment</label></div>
-    <div class="task"><input type="checkbox" id="t9"><label for="t9">Build the escalation path: compliance lawyer must have direct line to ownership + authority to halt non-compliant ops<div class="note">The Court will test this. Document it in the compliance plan.</div></label></div>
+    <h2><span class="num">2</span>ABS-Compliant Operating Agreement</h2>
+    <div class="callout warn"><b>Do not use standard templates from LegalZoom</b> — they will be automatically rejected by the Supreme Court. There are no official, pre-made templates available on the <a href="https://www.azcourts.gov/cld/Alternative-Business-Structure/Directory" target="_blank" rel="noopener">Arizona Judicial Branch ABS Directory</a>.</div>
+    <div class="task"><input type="checkbox" id="m5"><label for="m5">Hire an Ethics Drafter — Arizona-licensed legal-ethics attorney to draft the operating agreement<div class="note">This drafter does <b>not</b> need to be the same person you eventually hire as your day-to-day Compliance Lawyer.</div></label></div>
+    <div class="task"><input type="checkbox" id="m6"><label for="m6">Bake in ACJA § 7-209 protections: Absolute Anti-Interference Clause — non-lawyers cannot direct, regulate, or interfere with an attorney's independent legal judgment</label></div>
+    <div class="task"><input type="checkbox" id="m7"><label for="m7">Bake in ACJA § 7-209 protections: Escalation Path — Compliance Lawyer has a direct line to ownership and ultimate authority to halt non-compliant operations</label></div>
+    <div class="task"><input type="checkbox" id="m8"><label for="m8">Bake in ACJA § 7-209 protections: Client Confidentiality — structurally wall off non-lawyer investors from privileged client data</label></div>
+    <div class="task"><input type="checkbox" id="m9"><label for="m9">Bake in ACJA § 7-209 protections: Authorized Persons Roster — explicitly name everyone with 10%+ ownership or decision-making authority</label></div>
   </div>
 
   <div class="phase">
-    <h2><span class="num">3</span>ABS Application to AZ Supreme Court <span class="tag">Weeks 4–10</span></h2>
-    <div class="task"><input type="checkbox" id="t10"><label for="t10">Complete ABS application via the Arizona Judicial Branch (AJA) portal<div class="note">Includes entity docs, ownership disclosure, compliance plan, lawyer roster, application fee.</div></label></div>
-    <div class="task"><input type="checkbox" id="t11"><label for="t11">Compliance plan draft: how the ABS ensures lawyers follow AZ Rules of Professional Conduct</label></div>
-    <div class="task"><input type="checkbox" id="t12"><label for="t12">Background checks / character-fitness for all disclosable owners</label></div>
-    <div class="task"><input type="checkbox" id="t13"><label for="t13">Respond to Committee inquiries / attend hearing if scheduled<div class="note">Timeline is variable — budget 6–12 weeks from filing to decision.</div></label></div>
-    <div class="task"><input type="checkbox" id="t14"><label for="t14">License issued → calendar the annual renewal + any conditions attached to approval</label></div>
+    <h2><span class="num">3</span>The 1099 Compliance Lawyer <span class="tag">Weeks 2–4</span></h2>
+    <div class="callout">You must designate an active, Arizona-licensed attorney with a clean disciplinary record to serve as the firm's regulatory shield. They do not need to be a W-2 employee, but you must actively defend against the <b>"1099 Trap."</b> If the IRS determines they act like a full-time employee, you face severe tax penalties.</div>
+    <div class="task"><input type="checkbox" id="m10"><label for="m10">Keep it 1099 Defensible — lawyer sets own hours, uses own tools, serves other clients outside the firm, and carries own malpractice insurance (or is explicitly named as an independent contractor on the ABS policy)</label></div>
+    <div class="task"><input type="checkbox" id="m11"><label for="m11">Deliverable-Based Pay — no salary; compensate per milestone or monthly retainer tied to deliverables (quarterly compliance reviews, incident reporting, advertising review)<div class="note">Obtain a W-9 before the first payment.</div></label></div>
+    <div class="task"><input type="checkbox" id="m12"><label for="m12">Supervisory Role — they are not administrative assistants; their mandate is oversight, auditing, court liaison, and ensuring non-lawyer staff don't cross ethical lines</label></div>
   </div>
 
   <div class="phase">
-    <h2><span class="num">4</span>Post-Approval Ops <span class="tag">Ongoing</span></h2>
-    <div class="task"><input type="checkbox" id="t15"><label for="t15">Trust account (IOLTA) setup if the ABS touches client funds</label></div>
-    <div class="task"><input type="checkbox" id="t16"><label for="t16">File 1099-NEC for the compliance lawyer each January ($600+ threshold)</label></div>
-    <div class="task"><input type="checkbox" id="t17"><label for="t17">Quarterly compliance check-ins documented in writing — paper trail for the Court</label></div>
-    <div class="task"><input type="checkbox" id="t18"><label for="t18">Marketing review: non-lawyer-owned firm ads still must comply with AZ advertising rules — compliance lawyer signs off</label></div>
-    <div class="task"><input type="checkbox" id="t19"><label for="t19">Watch other states: ABS license is AZ-only — out-of-state clients/cases need co-counsel or local-licensed lawyers<div class="note">Relevant for MDL work filed in federal court outside Arizona.</div></label></div>
+    <h2><span class="num">4</span>MDL Operations & Filing Counsel</h2>
+    <div class="callout">Your non-lawyer staff can act as the engine of the operation, but licensed attorneys must handle the final legal bottlenecks.</div>
+    <div class="task"><input type="checkbox" id="m13"><label for="m13">Build the Non-Lawyer Engine — staff gather medical records, run Medical Record Review (MRR), screen cases against MDL settlement matrices, and prep Plaintiff Fact Sheets</label></div>
+    <div class="task"><input type="checkbox" id="m14"><label for="m14">Federal Filing Counsel — engage an attorney admitted to the relevant federal court to sign Short Form Complaints<div class="note">No W-2 required. Hire contract attorneys per case or formally partner with a national litigation firm as co-counsel.</div></label></div>
+    <div class="task"><input type="checkbox" id="m15"><label for="m15">Rule 11 Guarantee — the signing attorney's signature acts as a Federal Rule 11 certification, guaranteeing the judge that your non-lawyer MRR team found genuine evidentiary support for the claim</label></div>
+  </div>
+
+  <div class="phase">
+    <h2><span class="num">5</span>ABS Application & Committee Review <span class="tag">Weeks 4–16</span></h2>
+    <div class="task"><input type="checkbox" id="m16"><label for="m16">Submit the Application via the Arizona Judicial Branch portal — upload operating agreement, ownership disclosures, compliance plan<div class="note">$6,000 application fee.</div></label></div>
+    <div class="task"><input type="checkbox" id="m17"><label for="m17">Background Checks — the Certification and Licensing Division (CLD) runs deep financial and criminal checks on all 10%+ owners and the Compliance Lawyer</label></div>
+    <div class="task"><input type="checkbox" id="m18"><label for="m18">Public Committee Hearing — budget 6 to 12 weeks from filing to hearing<div class="note">The Committee will heavily question your Compliance Lawyer to confirm they have the real authority to stop non-lawyers from filing frivolous claims just to hit volume quotas.</div></label></div>
+  </div>
+
+  <div class="phase">
+    <h2><span class="num">6</span>Post-Approval Operations & Ongoing Compliance</h2>
+    <div class="callout">Once the Arizona Supreme Court issues the final order granting your license, you can legally establish attorney-client relationships and hold fee interests in cases.</div>
+    <div class="task"><input type="checkbox" id="m19"><label for="m19">Trust Accounting — set up an Arizona IOLTA (trust account) if the ABS directly handles or holds client settlement funds</label></div>
+    <div class="task"><input type="checkbox" id="m20"><label for="m20">Annual Tax Filings — issue a 1099-NEC to your Compliance Lawyer each January</label></div>
+    <div class="task"><input type="checkbox" id="m21"><label for="m21">Mandatory Audits — Compliance Lawyer conducts and documents internal compliance audits every six months to create a paper trail for the Court</label></div>
+    <div class="task"><input type="checkbox" id="m22"><label for="m22">Marketing Sign-off — non-lawyer-owned firm ads must strictly comply with AZ attorney advertising rules; Compliance Lawyer signs off on all websites and intake scripts</label></div>
+    <div class="task"><input type="checkbox" id="m23"><label for="m23">Biennial Renewal — track licensure dates carefully; every two years undergo a renewal review and pay the $3,000 renewal fee</label></div>
   </div>
 
   <footer>Playbook is a working checklist, not legal advice — have Arizona counsel review the application and contractor agreement before filing.</footer>
 </div>
 <script>
 const ids=[...document.querySelectorAll('input[type=checkbox]')];
-function save(){localStorage.setItem('abs_playbook',JSON.stringify(ids.map(i=>i.checked)))}
-function load(){try{const s=JSON.parse(localStorage.getItem('abs_playbook'));if(s)s.forEach((v,i)=>{ids[i].checked=v});}catch(e){}}
+const KEY='abs-playbook-v2';
+function save(){localStorage.setItem(KEY,JSON.stringify(ids.map(i=>i.checked)))}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s)s.forEach((v,i)=>{ids[i].checked=v});}catch(e){}}
 function render(){const n=ids.filter(i=>i.checked).length;const p=Math.round(n/ids.length*100);
  document.getElementById('fill').style.width=p+'%';document.getElementById('pct').textContent=p+'% complete ('+n+'/'+ids.length+')';
  ids.forEach(i=>i.closest('.task').classList.toggle('done',i.checked));}
